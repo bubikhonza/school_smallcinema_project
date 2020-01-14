@@ -1,0 +1,23 @@
+{% include 'localjobs/header.html' %}
+
+<form method="post" action="{% url 'job_create' %}">
+    {% csrf_token %}
+    <textarea id="detail" name="detail" placeholder="Enter your text"></textarea></br></br>
+    reward: <input  id="reward" type="text" name="reward"  placeholder="reward" required></br></br>
+    date: <input  id="date" type="date" name="date"  placeholder="date" required></br></br>
+    state: <input  id="state" type="text" name="state"  placeholder="state" required></br></br>
+    city: <input  id="city" type="text" name="city"  placeholder="city" required></br></br>
+    ZIP code: <input  id="zip_code" type="number" name="zip_code"  placeholder="zip_code" required></br></br>
+    street: <input  id="street" type="text" name="street"  placeholder="street" required></br></br>
+    house number: <input  id="number" type="number" name="number"  placeholder="number" required></br></br>
+    category of your job: 
+    <select name='type'>
+        {% for type in types %}
+            <option value='{{type.id}}'>{{ type.text }}</option>
+        {% endfor %}
+    </select>
+    <button id="submit" type="submit" >Submit</button>
+</form>
+
+
+{% include 'localjobs/footer.html' %}

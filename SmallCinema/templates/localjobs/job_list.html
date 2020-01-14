@@ -1,0 +1,19 @@
+{% include 'localjobs/header.html' %}
+
+Jobs nearby:
+</br>
+{% for job in jobs %}
+ID: {{job.id}}</br>
+Address: {{job.state}}, {{job.city}}, {{job.street}} {{job.number}}, {{job.zip_code}},</br>
+Date: {{job.date}}</br>
+Reward: {{job.reward}}</br>
+Category: {{job.type.text}}</br>
+From: {{job.user}}</br>
+{% if user == job.user %}
+    <a href="{% url 'job_delete' job.id %}">Delete</a>
+{% endif %}
+</br></br>
+
+{% endfor %}
+
+{% include 'localjobs/footer.html' %}

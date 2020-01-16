@@ -1,0 +1,19 @@
+{% include "header.html" %}
+
+<div class="jumbotron">
+    <h1>Your reservation <i>{{code}}</i></h1>
+</div>
+<div class="container-fluid">
+    {% for r in reservations %}
+    <h2>#{{forloop.counter}} Seating <a href="{% url 'remove_reservation_seating' code r.seat %}" type="button" class="btn btn-danger">Cancel</a></h2>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name: {{r.name}}</li>
+        <li class="list-group-item">Surname: {{r.surname}}</li>
+        <li class="list-group-item">Email: {{r.email}}</li>
+        <li class="list-group-item">Seat: {{r.seat}}</li>
+    </ul>
+    <br>
+    {% endfor %}
+</div>
+
+{% include "footer.html" %}

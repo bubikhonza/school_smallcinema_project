@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html class="no-js">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,4 +11,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='{% static "/bootstrap/css/bootstrap.css" %}' rel="stylesheet">
 </head>
+
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'display_showtimes' %}">Showtimes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'myticket' %}">My reservation</a>
+                </li>
+            </ul>
+        </div>
+    </nav>

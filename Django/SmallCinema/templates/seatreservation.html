@@ -1,0 +1,90 @@
+{% include "header.html" %}
+
+<div class="container-fluid">
+    <h1>Seat reservation for movie: <i>{{showtime.movie}}</i></h1>
+    <h3><u>{{showtime.hall}}</u></h3>
+    <form method="POST">
+        {% csrf_token %}
+
+        <table class="table table-dark table-bordered">
+            <tr>
+                <td colspan="2"></td>
+                <td style="background-color: rgb(71, 137, 194); text-align: center;" colspan="7">SCREEN</td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="11"></td>
+            </tr>
+            <tr>
+                <td colspan="11"></td>
+            </tr>
+            <tr>
+                <td colspan="11"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+
+                {% for i in range %}
+                {% if i in seats %}
+                <td style="background-color: rgb(194, 71, 71);">Seat {{i}} <input type="checkbox" name="seat"
+                        value="{{i}}" disabled="disabled" ></td>
+                {% else %}
+                <td style="background-color: rgb(71, 194, 75);">Seat {{i}} <input type="checkbox" name="seat"
+                        value="{{i}}"></td>
+                {% endif %}
+                {% if i == 6 or i == 13 or i == 21  %}
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+
+                {% endif %}
+                {% endfor %}
+                <td></td>
+                <td></td>
+            <tr>
+                <td colspan="11"></td>
+            </tr>
+        </table>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="name" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label>Surname</label>
+                    <input type="text" class="form-control" name="surname" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" name="email" required>
+                </div>
+            </div>
+            <div class="col">
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" class="form-control" name="phone" required>
+                </div>
+            </div>
+        </div>
+        <input class="btn btn-primary" type="submit">
+    </form>
+</div>
+<br/>
+
+
+<script type="text/javascript">
+</script>
+
+{% include "footer.html" %}

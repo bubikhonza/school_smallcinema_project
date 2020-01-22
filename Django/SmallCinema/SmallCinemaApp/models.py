@@ -53,7 +53,7 @@ class StudentsTicket(models.Model):
     showtime = models.ForeignKey(Showtime, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     surname = models.CharField(max_length=200)
-    studentsNumber = models.CharField(max_length=200)
+    studentsNumber = models.CharField(max_length=200, blank=True, null=True)
     discount = models.FloatField()
     seat = models.IntegerField()
 
@@ -67,7 +67,7 @@ class ChildrenTicket(models.Model):
     showtime = models.ForeignKey(Showtime, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     surname = models.CharField(max_length=200)
-    dateOfBirth = models.DateField()
+    dateOfBirth = models.DateField(blank=True, null=True)
     discount = models.FloatField()
     seat = models.IntegerField()
 

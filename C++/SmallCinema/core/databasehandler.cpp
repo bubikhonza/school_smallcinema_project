@@ -15,7 +15,7 @@ DatabaseHandler *DatabaseHandler::Instance()
 {
     if (!m_Instance){   // Only allow one instance of class to be generated.
         m_Instance = new DatabaseHandler;
-        m_Instance->Connect("C:\\skola\\5\\vis\\vis-project\\Django\\SmallCinema\\db.sqlite3");
+        m_Instance->Connect("../../Django/SmallCinema/db.sqlite3");
     }
     return m_Instance;
 }

@@ -7,6 +7,9 @@
 #include <sstream>
 #include <iterator>
 #include "QWidget"
+#include "db_mapping/adultsticket.h"
+#include "db_mapping/childrenticket.h"
+#include "db_mapping/studentsticket.h"
 
 CashierWindow::CashierWindow(QWidget *parent) :
     QDialog(parent),
@@ -23,6 +26,7 @@ CashierWindow::~CashierWindow()
 void CashierWindow::getTickets()
 {
     this->ticketList = DatabaseHandler::Instance()->GetAllTickets();
+    ui->tickets_table->setRowCount(0);
     int row=0;
     foreach(auto ticket, ticketList){
         ui->tickets_table->insertRow( ui->tickets_table->rowCount() );
@@ -36,6 +40,7 @@ void CashierWindow::getTickets()
 void CashierWindow::getReservations()
 {
     this->reservationList = DatabaseHandler::Instance()->GetAllReservations();
+    ui->reservations_table->setRowCount(0);
     int row=0;
     foreach(auto res, reservationList){
         if(res.processed)
@@ -51,6 +56,7 @@ void CashierWindow::getReservations()
 void CashierWindow::getShowtimes()
 {
     this->showtimeList = DatabaseHandler::Instance()->GetAllShowtimes();
+    ui->showtimes_table->setRowCount(0);
     int row=0;
     foreach(auto show, showtimeList){
         ui->showtimes_table->insertRow( ui->showtimes_table->rowCount() );
@@ -82,6 +88,8 @@ void CashierWindow::getTakenSeats(int showtime_id)
 
 void CashierWindow::fillShowCombo()
 {
+    ui->show_combo->clear();
+    ui->showtime_combobox->clear();
     this->showtimeList = DatabaseHandler::Instance()->GetAllShowtimes();
     foreach(auto show, showtimeList){
         auto movie = DatabaseHandler::Instance()->GetMovie(show.movie_id);
@@ -138,5 +146,56 @@ void CashierWindow::on_process_btn_clicked()
 
         ui->tabWidget->setCurrentIndex(4);
     }
+
+}
+
+void CashierWindow::on_add_ticket_clicked()
+{
+    int noadults = ui->noadults_input->text().toInt();
+    int nochildren = ui->nochildren_input->text().toInt();
+    int nostudents = ui->nostudents_input->text().toInt();
+
+    Showtime showtime = DatabaseHandler::Instance()->GetAllShowtimes().at(ui->showtime_combobox->currentIndex());
+    //seats from input to vector
+    std::string str = ui->seats_input->text().toStdString();
+    std::replace(str.begin(), str.end(), ',', ' ');
+    std::vector<int> seats;
+    std::stringstream ss(str);
+    int temp;
+    while (ss >> temp)
+        seats.push_back(temp);
+
+    for(int i = 0; i < noadults; i++){
+        AdultsTicket *a = new AdultsTicket();
+        a->name = ui->name_input->text();
+        a->seat = seats.at(i);
+        a->price = showtime.price;
+        a->surname = ui->surname_input->text();
+        a->showtime_id = showtime.id;
+        DatabaseHandler::Instance()->AddAdultsTicket(*a);
+    }
+    for(int i = 0; i < nochildren; i++){
+        ChildrenTicket *c = new ChildrenTicket();
+        c->name = ui->name_input->text();
+        c->seat = seats.at(i);
+        c->discount = 0.5;
+        c->price = showtime.price * (1 - c->discount);
+        c->surname = ui->surname_input->text();
+        c->showtime_id = showtime.id;
+        DatabaseHandler::Instance()->AddChildrenTicket(*c);
+    }
+    for(int i = 0; i < nostudents; i++){
+        StudentsTicket *s = new StudentsTicket();
+        s->name = ui->name_input->text();
+        s->seat = seats.at(i);
+        s->discount = 0.2;
+        s->price = showtime.price * (1 - s->discount);
+        s->surname = ui->surname_input->text();
+        s->showtime_id = showtime.id;
+        DatabaseHandler::Instance()->AddStudentsTicket(*s);
+    }
+    this->update();
+}
+void CashierWindow::on_pushButton_clicked(){
 
 }

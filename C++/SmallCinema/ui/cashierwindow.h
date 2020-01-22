@@ -25,6 +25,10 @@ private slots:
 
     void on_process_btn_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_add_ticket_clicked();
+
 private:
     Ui::CashierWindow *ui;
     std::vector<Reservation> reservationList;

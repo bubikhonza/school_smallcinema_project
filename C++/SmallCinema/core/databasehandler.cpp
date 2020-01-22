@@ -235,8 +235,59 @@ std::vector<Reservation> DatabaseHandler::GetReservations(QString code)
     return list;
 }
 
-Ticket DatabaseHandler::AddTicket(int id, QString type)
+void DatabaseHandler::AddChildrenTicket(ChildrenTicket c)
 {
+    m_Instance->db.open();
+    QSqlQuery query;
+    query.prepare("INSERT INTO SmallCinemaApp_childrenticket "
+                  "(id, price, name, surname, dateOfBirth, discount, showtime_id, seat) "
+                  "VALUES (:id, :price, :name, :surname, :dateOfBirth, :discount, :showtime_id, seat)");
+    query.bindValue(":id", c.id);
+    query.bindValue(":dateOfBirth", c.dateOfBirth);
+    query.bindValue(":discount", c.discount);
+    query.bindValue(":price", c.price);
+    query.bindValue(":seat", c.seat);
+    query.bindValue(":name", c.name);
+    query.bindValue(":surname", c.surname);
+    query.bindValue(":showtime_id", c.showtime_id);
+    query.exec();
+    m_Instance->db.close();
+}
+
+void DatabaseHandler::AddStudentsTicket(StudentsTicket s)
+{
+    m_Instance->db.open();
+    QSqlQuery query;
+    query.prepare("INSERT INTO SmallCinemaApp_studentsticket "
+                  "(id, price, name, surname, studentsNumber, discount, showtime_id, seat) "
+                  "VALUES (:id, :price, :name, :surname, :studentsNumber, :discount, :showtime_id, seat)");
+    query.bindValue(":id", s.id);
+    query.bindValue(":dateOfBirth", s.studentsNumber);
+    query.bindValue(":discount", s.discount);
+    query.bindValue(":price", s.price);
+    query.bindValue(":seat", s.seat);
+    query.bindValue(":name", s.name);
+    query.bindValue(":surname", s.surname);
+    query.bindValue(":showtime_id", s.showtime_id);
+    query.exec();
+    m_Instance->db.close();
+}
+
+void DatabaseHandler::AddAdultsTicket(AdultsTicket t)
+{
+    m_Instance->db.open();
+    QSqlQuery query;
+    query.prepare("INSERT INTO SmallCinemaApp_adultsticket "
+                  "(id, price, seat, name, surname, showtime_id) "
+                  "VALUES (:id, :price, :seat, :name, :surname, :showtime_id)");
+    query.bindValue(":id", t.id);
+    query.bindValue(":price", t.price);
+    query.bindValue(":seat", t.seat);
+    query.bindValue(":name", t.name);
+    query.bindValue(":surname", t.surname);
+    query.bindValue(":showtime_id", t.showtime_id);
+    query.exec();
+    m_Instance->db.close();
 }
 
 void DatabaseHandler::Connect(QString dbPath)

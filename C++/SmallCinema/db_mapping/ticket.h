@@ -6,6 +6,7 @@ class Ticket
 {
 public:
     Ticket();
+    virtual ~Ticket() = default;
 
     int id;
     double price;

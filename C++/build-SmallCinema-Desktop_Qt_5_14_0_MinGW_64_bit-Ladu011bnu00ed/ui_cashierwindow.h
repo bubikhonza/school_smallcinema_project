@@ -76,7 +76,7 @@ public:
     QLabel *hall_label;
     QLabel *label_6;
     QTextBrowser *textBrowser;
-    QPushButton *pushButton;
+    QPushButton *add_ticket;
 
     void setupUi(QDialog *CashierWindow)
     {
@@ -466,10 +466,10 @@ public:
 
         gridLayout_2->addWidget(textBrowser, 8, 1, 1, 3);
 
-        pushButton = new QPushButton(gridLayoutWidget_2);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        add_ticket = new QPushButton(gridLayoutWidget_2);
+        add_ticket->setObjectName(QString::fromUtf8("add_ticket"));
 
-        gridLayout_2->addWidget(pushButton, 9, 1, 1, 3);
+        gridLayout_2->addWidget(add_ticket, 9, 1, 1, 3);
 
         tabWidget->addTab(add_ticket_tab, QString());
 
@@ -478,7 +478,7 @@ public:
 
         retranslateUi(CashierWindow);
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(CashierWindow);
@@ -589,7 +589,7 @@ public:
                         "margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt;\">----------------------------------------</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt;\">ALL			450 K\304\215</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:14pt;\"><br /></p></body></html>", nullptr));
-        pushButton->setText(QCoreApplication::translate("CashierWindow", "Print bill and add ticket", nullptr));
+        add_ticket->setText(QCoreApplication::translate("CashierWindow", "Print bill and add ticket", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(add_ticket_tab), QCoreApplication::translate("CashierWindow", "Add ticket", nullptr));
     } // retranslateUi
 

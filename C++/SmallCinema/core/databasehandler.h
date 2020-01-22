@@ -5,6 +5,9 @@
 #include <QString>
 #include "db_mapping/reservation.h"
 #include "db_mapping/ticket.h"
+#include "db_mapping/adultsticket.h"
+#include "db_mapping/studentsticket.h"
+#include "db_mapping/childrenticket.h"
 #include "db_mapping/showtime.h"
 #include "db_mapping/movie.h"
 #include "db_mapping/hall.h"
@@ -27,7 +30,11 @@ public:
     Reservation GetReservation(int id);
     std::vector<Reservation> GetReservations(QString code);
 
-    Ticket AddTicket(int id, QString type);
+    void AddAdultsTicket(AdultsTicket t);
+    void AddChildrenTicket(ChildrenTicket c);
+    void AddStudentsTicket(StudentsTicket s);
+
+
     //other methods
 
 private:

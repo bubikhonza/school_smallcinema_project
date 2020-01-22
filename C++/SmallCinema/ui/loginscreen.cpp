@@ -2,6 +2,9 @@
 #include "ui_loginscreen.h"
 #include "adminwindow.h"
 #include "cashierwindow.h"
+#include "db_mapping/ticket.h"
+#include "core/databasehandler.h"
+
 LoginScreen::LoginScreen(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::LoginScreen)

@@ -50,6 +50,7 @@ private:
     void getTakenSeats(int showtime_id);
     void fillShowCombo();
     void updatePrice();
+    bool isBookable(std::vector<int> seats, int showtimeId);
 };
 
 #endif // CASHIERWINDOW_H

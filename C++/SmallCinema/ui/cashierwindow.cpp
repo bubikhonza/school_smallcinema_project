@@ -165,6 +165,9 @@ void CashierWindow::on_add_ticket_clicked()
     while (ss >> temp)
         seats.push_back(temp);
 
+    if(!isBookable(seats, showtime.id)){
+        return;
+    }
     for(int i = 0; i < noadults; i++){
         AdultsTicket *a = new AdultsTicket();
         a->name = ui->name_input->text();
@@ -232,6 +235,24 @@ void CashierWindow::updatePrice()
     ui->price_table->append(QString::fromStdString("--------------------------------"));
 
     ui->price_table->append(QString::fromStdString("ALL:                " + std::to_string(finalPrice)));
+}
+
+bool CashierWindow::isBookable(std::vector<int> seats, int showtimeId)
+{
+    auto clone = seats;
+    sort( clone.begin(), clone.end() );
+    clone.erase( unique( clone.begin(), clone.end() ), clone.end() );
+    if(clone.size() != seats.size())
+        return false;
+
+    foreach(auto seat, seats){
+        auto tickets = DatabaseHandler::Instance()->GetAllTickets();
+        foreach (auto ticket, tickets){
+            if(ticket.seat == seat && ticket.showtime_id == showtimeId)
+                return false;
+        }
+    }
+    return true;
 }
 
 void CashierWindow::on_nochildren_input_textEdited(const QString &arg1)

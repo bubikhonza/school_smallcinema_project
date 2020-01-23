@@ -26,7 +26,7 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>4</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="showtimes_tab">
        <attribute name="title">
@@ -564,8 +564,8 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:600;&quot;&gt;TAKEN seats: 1, 2, 3, 5, 7, 12, 13&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -581,176 +581,15 @@ p, li { white-space: pre-wrap; }
        <widget class="QWidget" name="gridLayoutWidget_2">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>20</x>
           <y>10</y>
           <width>1021</width>
           <height>671</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
-         <item row="2" column="6">
-          <widget class="QLineEdit" name="nostudents_input"/>
-         </item>
-         <item row="7" column="1" colspan="3">
-          <widget class="QLabel" name="seats_label">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>10</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Seats</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1" colspan="3">
-          <widget class="QLabel" name="datetime_label">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>10</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Datetime</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="4">
-          <widget class="QLineEdit" name="surname_input"/>
-         </item>
-         <item row="2" column="5">
-          <widget class="QLabel" name="label_7">
-           <property name="text">
-            <string>Number of students</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="4">
-          <widget class="QLineEdit" name="seats_input"/>
-         </item>
-         <item row="1" column="6">
-          <widget class="QLineEdit" name="email_input"/>
-         </item>
-         <item row="2" column="2">
-          <widget class="QLineEdit" name="noadults_input"/>
-         </item>
-         <item row="2" column="4">
-          <widget class="QLineEdit" name="nochildren_input"/>
-         </item>
-         <item row="4" column="1" colspan="3">
-          <widget class="QLabel" name="movie_label">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>10</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Movie</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3">
-          <widget class="QLabel" name="label_4">
-           <property name="text">
-            <string>Surname</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="QLabel" name="label_13">
-           <property name="text">
-            <string>Seats</string>
-           </property>
-          </widget>
-         </item>
          <item row="3" column="1" colspan="3">
-          <widget class="QLabel" name="label_8">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>10</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Ticket view</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Name</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="5">
-          <widget class="QLabel" name="label_5">
-           <property name="text">
-            <string>Email</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="QLineEdit" name="name_input"/>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string>Showtime</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QComboBox" name="showtime_combobox"/>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>Number of adults</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="1" colspan="3">
-          <widget class="QLabel" name="hall_label">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>10</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Hall</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="3">
-          <widget class="QLabel" name="label_6">
-           <property name="text">
-            <string>Number of children</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="1" colspan="3">
-          <widget class="QTextBrowser" name="textBrowser">
+          <widget class="QTextBrowser" name="price_table">
            <property name="maximumSize">
             <size>
              <width>5000</width>
@@ -767,19 +606,94 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;1x child		50 Kč&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;1x student		300 Kč&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;2x adults		100 Kč&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;----------------------------------------&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;ALL			450 Kč&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:14pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="9" column="1" colspan="3">
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Showtime</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLineEdit" name="noadults_input"/>
+         </item>
+         <item row="2" column="4">
+          <widget class="QLineEdit" name="nochildren_input"/>
+         </item>
+         <item row="1" column="4">
+          <widget class="QLineEdit" name="surname_input"/>
+         </item>
+         <item row="0" column="4">
+          <widget class="QLineEdit" name="seats_input"/>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="label_13">
+           <property name="text">
+            <string>Seats</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Number of adults</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="5">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Email</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLineEdit" name="name_input"/>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="6">
+          <widget class="QLineEdit" name="nostudents_input"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QComboBox" name="showtime_combobox"/>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Number of children</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="6">
+          <widget class="QLineEdit" name="email_input"/>
+         </item>
+         <item row="2" column="5">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Number of students</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1" colspan="3">
           <widget class="QPushButton" name="add_ticket">
            <property name="text">
             <string>Print bill and add ticket</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Surname</string>
            </property>
           </widget>
          </item>

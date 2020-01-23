@@ -29,6 +29,14 @@ private slots:
 
     void on_add_ticket_clicked();
 
+    void on_nochildren_input_textEdited(const QString &arg1);
+
+    void on_noadults_input_textEdited(const QString &arg1);
+
+    void on_nostudents_input_textEdited(const QString &arg1);
+
+    void on_tabWidget_tabBarClicked(int index);
+
 private:
     Ui::CashierWindow *ui;
     std::vector<Reservation> reservationList;
@@ -40,6 +48,7 @@ private:
     void getShowtimes();
     void getTakenSeats(int showtime_id);
     void fillShowCombo();
+    void updatePrice();
 };
 
 #endif // CASHIERWINDOW_H

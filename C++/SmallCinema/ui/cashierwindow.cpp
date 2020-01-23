@@ -101,6 +101,8 @@ void CashierWindow::fillShowCombo()
 
 }
 
+
+
 void CashierWindow::update(){
     getReservations();
     getTickets();
@@ -146,7 +148,7 @@ void CashierWindow::on_process_btn_clicked()
 
         ui->tabWidget->setCurrentIndex(4);
     }
-
+    updatePrice();
 }
 
 void CashierWindow::on_add_ticket_clicked()
@@ -168,7 +170,8 @@ void CashierWindow::on_add_ticket_clicked()
     for(int i = 0; i < noadults; i++){
         AdultsTicket *a = new AdultsTicket();
         a->name = ui->name_input->text();
-        a->seat = seats.at(i);
+        a->seat = seats.back();
+        seats.pop_back();
         a->price = showtime.price;
         a->surname = ui->surname_input->text();
         a->showtime_id = showtime.id;
@@ -177,7 +180,8 @@ void CashierWindow::on_add_ticket_clicked()
     for(int i = 0; i < nochildren; i++){
         ChildrenTicket *c = new ChildrenTicket();
         c->name = ui->name_input->text();
-        c->seat = seats.at(i);
+        c->seat = seats.back();
+        seats.pop_back();
         c->discount = 0.5;
         c->price = showtime.price * (1 - c->discount);
         c->surname = ui->surname_input->text();
@@ -187,7 +191,8 @@ void CashierWindow::on_add_ticket_clicked()
     for(int i = 0; i < nostudents; i++){
         StudentsTicket *s = new StudentsTicket();
         s->name = ui->name_input->text();
-        s->seat = seats.at(i);
+        s->seat = seats.back();
+        seats.pop_back();
         s->discount = 0.2;
         s->price = showtime.price * (1 - s->discount);
         s->surname = ui->surname_input->text();
@@ -198,4 +203,55 @@ void CashierWindow::on_add_ticket_clicked()
 }
 void CashierWindow::on_pushButton_clicked(){
 
+}
+
+
+void CashierWindow::updatePrice()
+{
+    int noadults = ui->noadults_input->text().toInt();
+    int nochildren = ui->nochildren_input->text().toInt();
+    int nostudents = ui->nostudents_input->text().toInt();
+    int finalPrice = 0;
+    Showtime showtime = DatabaseHandler::Instance()->GetAllShowtimes().at(ui->showtime_combobox->currentIndex());
+    ui->price_table->clear();
+    for(int i = 1; i <= noadults; i++){
+        std::string str = "Adult_" + std::to_string(i) + ":            " + std::to_string(showtime.price);
+        finalPrice += showtime.price;
+        ui->price_table->append(QString::fromStdString(str));
+    }
+    for(int i = 1; i <= nochildren; i++){
+        std::string str = "Children_" + std::to_string(i) + ":         " + std::to_string(showtime.price * 0.5);
+        finalPrice += showtime.price * 0.5;
+        ui->price_table->append(QString::fromStdString(str));
+    }
+    for(int i = 1; i <= nostudents; i++){
+        std::string str = "Student_" + std::to_string(i) + ":          " + std::to_string(showtime.price * 0.2);
+        finalPrice += showtime.price * 0.2;
+        ui->price_table->append(QString::fromStdString(str));
+    }
+    ui->price_table->append(QString::fromStdString("--------------------------------"));
+
+    ui->price_table->append(QString::fromStdString("ALL:                " + std::to_string(finalPrice)));
+}
+
+void CashierWindow::on_nochildren_input_textEdited(const QString &arg1)
+{
+    updatePrice();
+}
+
+void CashierWindow::on_noadults_input_textEdited(const QString &arg1)
+{
+    updatePrice();
+
+}
+
+void CashierWindow::on_nostudents_input_textEdited(const QString &arg1)
+{
+    updatePrice();
+}
+
+
+void CashierWindow::on_tabWidget_tabBarClicked(int index)
+{
+    //getTakenSeats(ui->show_combo->currentIndex());
 }

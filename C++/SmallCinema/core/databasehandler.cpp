@@ -78,10 +78,10 @@ std::vector<Ticket> DatabaseHandler::GetAllTickets()
         obj->price = query.value(1).toDouble();
         obj->name = query.value(2).toString();
         obj->surname = query.value(3).toString();
-        obj->dateOfBirth = query.value(4).toDate();
-        obj->discount = query.value(5).toDouble();
-        obj->showtime_id = query.value(6).toInt();
-        obj->seat = query.value(7).toInt();
+        obj->dateOfBirth = query.value(7).toDate();
+        obj->discount = query.value(4).toDouble();
+        obj->showtime_id = query.value(5).toInt();
+        obj->seat = query.value(6).toInt();
         list.push_back(*obj);
     }
     query.clear();
@@ -104,10 +104,10 @@ std::vector<Ticket> DatabaseHandler::GetAllTickets()
         obj->price = query.value(1).toDouble();
         obj->name = query.value(2).toString();
         obj->surname = query.value(3).toString();
-        obj->studentsNumber = query.value(4).toString();
-        obj->discount = query.value(5).toDouble();
-        obj->showtime_id = query.value(6).toInt();
-        obj->seat = query.value(7).toInt();
+        obj->studentsNumber = query.value(7).toString();
+        obj->discount = query.value(4).toDouble();
+        obj->showtime_id = query.value(5).toInt();
+        obj->seat = query.value(6).toInt();
         list.push_back(*obj);
     }
     m_Instance->db.close();
@@ -241,15 +241,15 @@ void DatabaseHandler::AddChildrenTicket(ChildrenTicket c)
     QSqlQuery query;
     query.prepare("INSERT INTO SmallCinemaApp_childrenticket "
                   "(id, price, name, surname, dateOfBirth, discount, showtime_id, seat) "
-                  "VALUES (:id, :price, :name, :surname, :dateOfBirth, :discount, :showtime_id, seat)");
-    query.bindValue(":id", c.id);
-    query.bindValue(":dateOfBirth", c.dateOfBirth);
-    query.bindValue(":discount", c.discount);
+                  "VALUES (:id, :price, :name, :surname, :dateOfBirth, :discount, :showtime_id, :seat)");
+    query.bindValue(":id", NULL);
     query.bindValue(":price", c.price);
-    query.bindValue(":seat", c.seat);
     query.bindValue(":name", c.name);
     query.bindValue(":surname", c.surname);
+    query.bindValue(":dateOfBirth", NULL);
+    query.bindValue(":discount", c.discount);
     query.bindValue(":showtime_id", c.showtime_id);
+    query.bindValue(":seat", c.seat);
     query.exec();
     m_Instance->db.close();
 }
@@ -260,8 +260,8 @@ void DatabaseHandler::AddStudentsTicket(StudentsTicket s)
     QSqlQuery query;
     query.prepare("INSERT INTO SmallCinemaApp_studentsticket "
                   "(id, price, name, surname, studentsNumber, discount, showtime_id, seat) "
-                  "VALUES (:id, :price, :name, :surname, :studentsNumber, :discount, :showtime_id, seat)");
-    query.bindValue(":id", s.id);
+                  "VALUES (:id, :price, :name, :surname, :studentsNumber, :discount, :showtime_id, :seat)");
+    query.bindValue(":id", NULL);
     query.bindValue(":dateOfBirth", s.studentsNumber);
     query.bindValue(":discount", s.discount);
     query.bindValue(":price", s.price);
@@ -280,7 +280,7 @@ void DatabaseHandler::AddAdultsTicket(AdultsTicket t)
     query.prepare("INSERT INTO SmallCinemaApp_adultsticket "
                   "(id, price, seat, name, surname, showtime_id) "
                   "VALUES (:id, :price, :seat, :name, :surname, :showtime_id)");
-    query.bindValue(":id", t.id);
+    query.bindValue(":id", NULL);
     query.bindValue(":price", t.price);
     query.bindValue(":seat", t.seat);
     query.bindValue(":name", t.name);

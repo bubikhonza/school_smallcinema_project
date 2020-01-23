@@ -54,29 +54,24 @@ public:
     QWidget *add_ticket_tab;
     QWidget *gridLayoutWidget_2;
     QGridLayout *gridLayout_2;
-    QLineEdit *nostudents_input;
-    QLabel *seats_label;
-    QLabel *datetime_label;
-    QLineEdit *surname_input;
-    QLabel *label_7;
-    QLineEdit *seats_input;
-    QLineEdit *email_input;
+    QTextBrowser *price_table;
+    QLabel *label_2;
     QLineEdit *noadults_input;
     QLineEdit *nochildren_input;
-    QLabel *movie_label;
-    QLabel *label_4;
+    QLineEdit *surname_input;
+    QLineEdit *seats_input;
     QLabel *label_13;
-    QLabel *label_8;
-    QLabel *label;
+    QLabel *label_3;
     QLabel *label_5;
     QLineEdit *name_input;
-    QLabel *label_2;
+    QLabel *label;
+    QLineEdit *nostudents_input;
     QComboBox *showtime_combobox;
-    QLabel *label_3;
-    QLabel *hall_label;
     QLabel *label_6;
-    QTextBrowser *textBrowser;
+    QLineEdit *email_input;
+    QLabel *label_7;
     QPushButton *add_ticket;
+    QLabel *label_4;
 
     void setupUi(QDialog *CashierWindow)
     {
@@ -335,46 +330,23 @@ public:
         add_ticket_tab->setObjectName(QString::fromUtf8("add_ticket_tab"));
         gridLayoutWidget_2 = new QWidget(add_ticket_tab);
         gridLayoutWidget_2->setObjectName(QString::fromUtf8("gridLayoutWidget_2"));
-        gridLayoutWidget_2->setGeometry(QRect(10, 10, 1021, 671));
+        gridLayoutWidget_2->setGeometry(QRect(20, 10, 1021, 671));
         gridLayout_2 = new QGridLayout(gridLayoutWidget_2);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        nostudents_input = new QLineEdit(gridLayoutWidget_2);
-        nostudents_input->setObjectName(QString::fromUtf8("nostudents_input"));
+        price_table = new QTextBrowser(gridLayoutWidget_2);
+        price_table->setObjectName(QString::fromUtf8("price_table"));
+        price_table->setMaximumSize(QSize(5000, 250));
+        QFont font1;
+        font1.setPointSize(16);
+        price_table->setFont(font1);
 
-        gridLayout_2->addWidget(nostudents_input, 2, 6, 1, 1);
+        gridLayout_2->addWidget(price_table, 3, 1, 1, 3);
 
-        seats_label = new QLabel(gridLayoutWidget_2);
-        seats_label->setObjectName(QString::fromUtf8("seats_label"));
-        seats_label->setMaximumSize(QSize(16777215, 10));
+        label_2 = new QLabel(gridLayoutWidget_2);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
 
-        gridLayout_2->addWidget(seats_label, 7, 1, 1, 3);
-
-        datetime_label = new QLabel(gridLayoutWidget_2);
-        datetime_label->setObjectName(QString::fromUtf8("datetime_label"));
-        datetime_label->setMaximumSize(QSize(16777215, 10));
-
-        gridLayout_2->addWidget(datetime_label, 5, 1, 1, 3);
-
-        surname_input = new QLineEdit(gridLayoutWidget_2);
-        surname_input->setObjectName(QString::fromUtf8("surname_input"));
-
-        gridLayout_2->addWidget(surname_input, 1, 4, 1, 1);
-
-        label_7 = new QLabel(gridLayoutWidget_2);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-
-        gridLayout_2->addWidget(label_7, 2, 5, 1, 1);
-
-        seats_input = new QLineEdit(gridLayoutWidget_2);
-        seats_input->setObjectName(QString::fromUtf8("seats_input"));
-
-        gridLayout_2->addWidget(seats_input, 0, 4, 1, 1);
-
-        email_input = new QLineEdit(gridLayoutWidget_2);
-        email_input->setObjectName(QString::fromUtf8("email_input"));
-
-        gridLayout_2->addWidget(email_input, 1, 6, 1, 1);
+        gridLayout_2->addWidget(label_2, 0, 1, 1, 1);
 
         noadults_input = new QLineEdit(gridLayoutWidget_2);
         noadults_input->setObjectName(QString::fromUtf8("noadults_input"));
@@ -386,40 +358,25 @@ public:
 
         gridLayout_2->addWidget(nochildren_input, 2, 4, 1, 1);
 
-        movie_label = new QLabel(gridLayoutWidget_2);
-        movie_label->setObjectName(QString::fromUtf8("movie_label"));
-        movie_label->setMaximumSize(QSize(16777215, 10));
+        surname_input = new QLineEdit(gridLayoutWidget_2);
+        surname_input->setObjectName(QString::fromUtf8("surname_input"));
 
-        gridLayout_2->addWidget(movie_label, 4, 1, 1, 3);
+        gridLayout_2->addWidget(surname_input, 1, 4, 1, 1);
 
-        label_4 = new QLabel(gridLayoutWidget_2);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
+        seats_input = new QLineEdit(gridLayoutWidget_2);
+        seats_input->setObjectName(QString::fromUtf8("seats_input"));
 
-        gridLayout_2->addWidget(label_4, 1, 3, 1, 1);
+        gridLayout_2->addWidget(seats_input, 0, 4, 1, 1);
 
         label_13 = new QLabel(gridLayoutWidget_2);
         label_13->setObjectName(QString::fromUtf8("label_13"));
 
         gridLayout_2->addWidget(label_13, 0, 3, 1, 1);
 
-        label_8 = new QLabel(gridLayoutWidget_2);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        sizePolicy.setHeightForWidth(label_8->sizePolicy().hasHeightForWidth());
-        label_8->setSizePolicy(sizePolicy);
-        label_8->setMaximumSize(QSize(16777215, 10));
-        QFont font1;
-        font1.setPointSize(10);
-        font1.setBold(true);
-        font1.setWeight(75);
-        label_8->setFont(font1);
-        label_8->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        label_3 = new QLabel(gridLayoutWidget_2);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
 
-        gridLayout_2->addWidget(label_8, 3, 1, 1, 3);
-
-        label = new QLabel(gridLayoutWidget_2);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        gridLayout_2->addWidget(label, 1, 1, 1, 1);
+        gridLayout_2->addWidget(label_3, 2, 1, 1, 1);
 
         label_5 = new QLabel(gridLayoutWidget_2);
         label_5->setObjectName(QString::fromUtf8("label_5"));
@@ -431,45 +388,45 @@ public:
 
         gridLayout_2->addWidget(name_input, 1, 2, 1, 1);
 
-        label_2 = new QLabel(gridLayoutWidget_2);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label = new QLabel(gridLayoutWidget_2);
+        label->setObjectName(QString::fromUtf8("label"));
 
-        gridLayout_2->addWidget(label_2, 0, 1, 1, 1);
+        gridLayout_2->addWidget(label, 1, 1, 1, 1);
+
+        nostudents_input = new QLineEdit(gridLayoutWidget_2);
+        nostudents_input->setObjectName(QString::fromUtf8("nostudents_input"));
+
+        gridLayout_2->addWidget(nostudents_input, 2, 6, 1, 1);
 
         showtime_combobox = new QComboBox(gridLayoutWidget_2);
         showtime_combobox->setObjectName(QString::fromUtf8("showtime_combobox"));
 
         gridLayout_2->addWidget(showtime_combobox, 0, 2, 1, 1);
 
-        label_3 = new QLabel(gridLayoutWidget_2);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-
-        gridLayout_2->addWidget(label_3, 2, 1, 1, 1);
-
-        hall_label = new QLabel(gridLayoutWidget_2);
-        hall_label->setObjectName(QString::fromUtf8("hall_label"));
-        hall_label->setMaximumSize(QSize(16777215, 10));
-
-        gridLayout_2->addWidget(hall_label, 6, 1, 1, 3);
-
         label_6 = new QLabel(gridLayoutWidget_2);
         label_6->setObjectName(QString::fromUtf8("label_6"));
 
         gridLayout_2->addWidget(label_6, 2, 3, 1, 1);
 
-        textBrowser = new QTextBrowser(gridLayoutWidget_2);
-        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setMaximumSize(QSize(5000, 250));
-        QFont font2;
-        font2.setPointSize(16);
-        textBrowser->setFont(font2);
+        email_input = new QLineEdit(gridLayoutWidget_2);
+        email_input->setObjectName(QString::fromUtf8("email_input"));
 
-        gridLayout_2->addWidget(textBrowser, 8, 1, 1, 3);
+        gridLayout_2->addWidget(email_input, 1, 6, 1, 1);
+
+        label_7 = new QLabel(gridLayoutWidget_2);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+
+        gridLayout_2->addWidget(label_7, 2, 5, 1, 1);
 
         add_ticket = new QPushButton(gridLayoutWidget_2);
         add_ticket->setObjectName(QString::fromUtf8("add_ticket"));
 
-        gridLayout_2->addWidget(add_ticket, 9, 1, 1, 3);
+        gridLayout_2->addWidget(add_ticket, 4, 1, 1, 3);
+
+        label_4 = new QLabel(gridLayoutWidget_2);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        gridLayout_2->addWidget(label_4, 1, 3, 1, 1);
 
         tabWidget->addTab(add_ticket_tab, QString());
 
@@ -478,7 +435,7 @@ public:
 
         retranslateUi(CashierWindow);
 
-        tabWidget->setCurrentIndex(4);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(CashierWindow);
@@ -562,34 +519,23 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:600;\">TAKEN seats: 1, 2, 3, 5, 7, 12, 13</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:600;\"><br /></p></body></html>", nullptr));
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';\"><br /></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';\"><br /></p></body></html>", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(halls_tab), QCoreApplication::translate("CashierWindow", "Seatings", nullptr));
-        seats_label->setText(QCoreApplication::translate("CashierWindow", "Seats", nullptr));
-        datetime_label->setText(QCoreApplication::translate("CashierWindow", "Datetime", nullptr));
-        label_7->setText(QCoreApplication::translate("CashierWindow", "Number of students", nullptr));
-        movie_label->setText(QCoreApplication::translate("CashierWindow", "Movie", nullptr));
-        label_4->setText(QCoreApplication::translate("CashierWindow", "Surname", nullptr));
-        label_13->setText(QCoreApplication::translate("CashierWindow", "Seats", nullptr));
-        label_8->setText(QCoreApplication::translate("CashierWindow", "Ticket view", nullptr));
-        label->setText(QCoreApplication::translate("CashierWindow", "Name", nullptr));
-        label_5->setText(QCoreApplication::translate("CashierWindow", "Email", nullptr));
-        label_2->setText(QCoreApplication::translate("CashierWindow", "Showtime", nullptr));
-        label_3->setText(QCoreApplication::translate("CashierWindow", "Number of adults", nullptr));
-        hall_label->setText(QCoreApplication::translate("CashierWindow", "Hall", nullptr));
-        label_6->setText(QCoreApplication::translate("CashierWindow", "Number of children", nullptr));
-        textBrowser->setHtml(QCoreApplication::translate("CashierWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        price_table->setHtml(QCoreApplication::translate("CashierWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt;\">1x child		50 K\304\215</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt;\">1x student		300 K\304\215</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt;\">2x adults		100 K\304\215</span></p>\n"
-"<p style=\" "
-                        "margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt;\">----------------------------------------</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt;\">ALL			450 K\304\215</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:14pt;\"><br /></p></body></html>", nullptr));
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';\"><br /></p></body></html>", nullptr));
+        label_2->setText(QCoreApplication::translate("CashierWindow", "Showtime", nullptr));
+        label_13->setText(QCoreApplication::translate("CashierWindow", "Seats", nullptr));
+        label_3->setText(QCoreApplication::translate("CashierWindow", "Number of adults", nullptr));
+        label_5->setText(QCoreApplication::translate("CashierWindow", "Email", nullptr));
+        label->setText(QCoreApplication::translate("CashierWindow", "Name", nullptr));
+        label_6->setText(QCoreApplication::translate("CashierWindow", "Number of children", nullptr));
+        label_7->setText(QCoreApplication::translate("CashierWindow", "Number of students", nullptr));
         add_ticket->setText(QCoreApplication::translate("CashierWindow", "Print bill and add ticket", nullptr));
+        label_4->setText(QCoreApplication::translate("CashierWindow", "Surname", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(add_ticket_tab), QCoreApplication::translate("CashierWindow", "Add ticket", nullptr));
     } // retranslateUi
 

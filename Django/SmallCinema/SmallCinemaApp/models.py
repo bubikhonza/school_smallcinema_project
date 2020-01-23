@@ -61,7 +61,9 @@ class StudentsTicket(models.Model):
     def __str__(self):
         return str(self.name) + str(self.surname)
 
-
+    class Meta:
+        unique_together = ('showtime', 'seat',)
+        
 class ChildrenTicket(models.Model):
     price = models.FloatField()
     showtime = models.ForeignKey(Showtime, on_delete=models.CASCADE)
@@ -74,7 +76,8 @@ class ChildrenTicket(models.Model):
 
     def __str__(self):
         return str(self.name) + str(self.surname)
-
+    class Meta:
+        unique_together = ('showtime', 'seat',)
 
 class AdultsTicket(models.Model):
     price = models.FloatField()
@@ -85,6 +88,9 @@ class AdultsTicket(models.Model):
 
     def __str__(self):
         return str(self.name) + str(self.surname)
+
+    class Meta:
+        unique_together = ('showtime', 'seat',)
 
 
 class Reservation(models.Model):

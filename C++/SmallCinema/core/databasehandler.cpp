@@ -242,7 +242,7 @@ void DatabaseHandler::AddChildrenTicket(ChildrenTicket c)
     query.prepare("INSERT INTO SmallCinemaApp_childrenticket "
                   "(id, price, name, surname, dateOfBirth, discount, showtime_id, seat) "
                   "VALUES (:id, :price, :name, :surname, :dateOfBirth, :discount, :showtime_id, :seat)");
-    query.bindValue(":id", NULL);
+    query.bindValue(":id", QVariant(QVariant::Int));
     query.bindValue(":price", c.price);
     query.bindValue(":name", c.name);
     query.bindValue(":surname", c.surname);
@@ -261,7 +261,7 @@ void DatabaseHandler::AddStudentsTicket(StudentsTicket s)
     query.prepare("INSERT INTO SmallCinemaApp_studentsticket "
                   "(id, price, name, surname, studentsNumber, discount, showtime_id, seat) "
                   "VALUES (:id, :price, :name, :surname, :studentsNumber, :discount, :showtime_id, :seat)");
-    query.bindValue(":id", NULL);
+    query.bindValue(":id", QVariant(QVariant::Int));
     query.bindValue(":dateOfBirth", s.studentsNumber);
     query.bindValue(":discount", s.discount);
     query.bindValue(":price", s.price);
@@ -273,6 +273,16 @@ void DatabaseHandler::AddStudentsTicket(StudentsTicket s)
     m_Instance->db.close();
 }
 
+void DatabaseHandler::RemoveReservations(QString code)
+{
+    m_Instance->db.open();
+    QSqlQuery query;
+    query.prepare("DELETE FROM SmallCinemaApp_reservation WHERE code = :code");
+    query.bindValue(":code", code);
+    query.exec();
+    m_Instance->db.close();
+}
+
 void DatabaseHandler::AddAdultsTicket(AdultsTicket t)
 {
     m_Instance->db.open();
@@ -280,7 +290,7 @@ void DatabaseHandler::AddAdultsTicket(AdultsTicket t)
     query.prepare("INSERT INTO SmallCinemaApp_adultsticket "
                   "(id, price, seat, name, surname, showtime_id) "
                   "VALUES (:id, :price, :seat, :name, :surname, :showtime_id)");
-    query.bindValue(":id", NULL);
+    query.bindValue(":id", QVariant(QVariant::Int));
     query.bindValue(":price", t.price);
     query.bindValue(":seat", t.seat);
     query.bindValue(":name", t.name);

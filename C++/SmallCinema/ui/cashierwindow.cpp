@@ -98,10 +98,7 @@ void CashierWindow::fillShowCombo()
         ui->show_combo->addItem(s);
         ui->showtime_combobox->addItem(s);
     }
-
 }
-
-
 
 void CashierWindow::update(){
     getReservations();
@@ -147,6 +144,7 @@ void CashierWindow::on_process_btn_clicked()
         ui->nostudents_input->setText(QString::number(0));
 
         ui->tabWidget->setCurrentIndex(4);
+        codeInProcess = code;
     }
     updatePrice();
 }
@@ -199,7 +197,9 @@ void CashierWindow::on_add_ticket_clicked()
         s->showtime_id = showtime.id;
         DatabaseHandler::Instance()->AddStudentsTicket(*s);
     }
+    DatabaseHandler::Instance()->RemoveReservations(codeInProcess);
     this->update();
+
 }
 void CashierWindow::on_pushButton_clicked(){
 

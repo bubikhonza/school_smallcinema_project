@@ -33,7 +33,7 @@ public:
     void AddAdultsTicket(AdultsTicket t);
     void AddChildrenTicket(ChildrenTicket c);
     void AddStudentsTicket(StudentsTicket s);
-
+    void RemoveReservations(QString code);
 
     //other methods
 

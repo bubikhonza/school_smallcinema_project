@@ -19,6 +19,7 @@ public:
     explicit CashierWindow(QWidget *parent = nullptr);
     ~CashierWindow();
     void update();
+    QString codeInProcess;
 
 private slots:
     void on_show_combo_activated(int index);
